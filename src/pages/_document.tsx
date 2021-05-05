@@ -6,15 +6,15 @@ import * as React from 'react';
 class MyDocument extends Document {
   render() {
     return (
-        <Html lang="ja-JP">
-          <Head>
-            <link rel="icon" href="/favicon.ico" />
-          </Head>
-          <body>
+      <Html lang="ja-JP">
+        <Head>
+          <link key="favicon" rel="icon" href="/favicon.ico" />
+        </Head>
+        <body>
           <Main />
           <NextScript />
-          </body>
-        </Html>
+        </body>
+      </Html>
     );
   }
 }
@@ -25,7 +25,8 @@ MyDocument.getInitialProps = async (ctx) => {
   const origRenderPage = ctx.renderPage;
 
   const renderOptions = {
-    enhanceApp: (App) => (props) => scSheet.collectStyles(muiSheets.collect(<App {...props} />)),
+    enhanceApp: (App) => (props) =>
+      scSheet.collectStyles(muiSheets.collect(<App {...props} />)),
   };
 
   try {
