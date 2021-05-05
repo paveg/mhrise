@@ -1,24 +1,67 @@
 {
-  "name": "with-typescript-styled-components",
-  "version": "1.0.0",
+  "name": "mhrise",
+  "version": "0.1.0",
   "scripts": {
-    "dev": "next",
+    "dev": "next dev",
+    "postbuild": "next-sitemap",
     "build": "next build",
-    "start": "next start"
+    "export": "next export",
+    "start": "next start",
+    "prettier": "pretty-quick --staged",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
+    "test": "jest",
+    "test:ci": "jest --ci --coverage",
+    "storybook": "start-storybook -p 6006"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged",
+      "pre-push": "npm run lint"
+    }
   },
   "dependencies": {
+    "@loadable/component": "^5.14.1",
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/styles": "^4.11.4",
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
-    "styled-components": "^5.2.3"
+    "styled-components": "^5.2.3",
+    "styled-reset": "^4.3.4"
   },
   "devDependencies": {
-    "@types/node": "15.0.0",
+    "@storybook/react": "^6.2.9",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.0.0",
     "@types/react": "17.0.4",
     "@types/react-dom": "17.0.3",
-    "@types/styled-components": "5.1.9",
+    "@types/react-test-renderer": "^17.0.1",
+    "@types/styled-components": "^5.1.9",
+    "@typescript-eslint/eslint-plugin": "^4.22.1",
+    "@typescript-eslint/parser": "^4.22.1",
+    "babel-loader": "^8.2.2",
     "babel-plugin-styled-components": "^1.12.0",
+    "babel-preset-react-app": "^10.0.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "enzyme-to-json": "^3.6.2",
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.3.6",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^6.0.0",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0",
+    "react-test-renderer": "^17.0.2",
+    "ts-jest": "^26.4.4",
     "typescript": "4.2.4"
   },
   "license": "MIT"
